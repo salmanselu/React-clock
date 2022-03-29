@@ -1,6 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 
+function formatTime(time){
+  if(time > 9) return time;
+  return "0" + time;
+}
 function App() {
 
   let [date, setDate ] = useState(new Date());
@@ -11,7 +15,7 @@ function App() {
       <div className="App-header">
         <div className="App-logo">
           {
-            date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+            formatTime(date.getHours()) + ":" + formatTime(date.getMinutes()) + ":" + formatTime(date.getSeconds())
           }
         </div>
       </div>
